@@ -6,15 +6,11 @@ resources:
 
 patchesStrategicMerge:
 - |-
-  apiVersion: apps/v1
-  kind: Deployment
+  apiVersion: gateway.solo.io/v1
+  kind: Gateway
   metadata:
     name: gateway-proxy
     namespace: gloo-system
   spec:
-    template:
-      spec:
-        securityContext:
-            sysctls:
-            - name: net.netfilter.nf_conntrack_tcp_timeout_close_wait
-              value: "10"
+    options:
+      perConnectionBufferLimitBytes: 104857600
