@@ -14,3 +14,8 @@ patchesStrategicMerge:
   spec:
     options:
       perConnectionBufferLimitBytes: 104857600
+      accessLoggingService:
+        accessLog:
+        - fileSink:
+            path: /dev/stdout
+            stringFormat: ""
